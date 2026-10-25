@@ -1,0 +1,66 @@
+import Link from 'next/link';
+import { ChatDemo } from '@/components/chat/chat-demo';
+import styles from './home-mobile.module.css';
+
+export default function Home() {
+  return (
+    <>
+      <section className="home-hero">
+        <div className={`container home-hero-grid ${styles.heroGrid}`}>
+          <div className="home-hero-copy">
+            <p className="eyebrow">
+              Você não precisa encontrar o caminho sozinho
+            </p>
+            <h1>Um primeiro passo para encontrar apoio.</h1>
+            <p
+              style={{
+                color: 'var(--muted)',
+                fontSize: '1.15rem',
+                maxWidth: 590,
+              }}
+            >
+              Converse, compreenda possibilidades de cuidado e conheça
+              profissionais de saúde mental em um ambiente humano e respeitoso.
+            </p>
+            <div
+              className={`home-hero-professionals-action ${styles.professionalsAction}`}
+            >
+              <Link className="button secondary" href="/profissionais">
+                Ver profissionais
+              </Link>
+            </div>
+          </div>
+          <ChatDemo className="home-chat" />
+        </div>
+      </section>
+      <section style={{ padding: '5rem 0' }}>
+        <div
+          className="container surface"
+          style={{
+            padding: 'clamp(1.5rem,5vw,3.5rem)',
+            background: '#18352f',
+            color: 'white',
+          }}
+        >
+          <p className="eyebrow" style={{ color: '#bcd8cc' }}>
+            Importante
+          </p>
+          <h2
+            style={{
+              fontFamily: 'Georgia,serif',
+              fontSize: 'clamp(1.8rem,4vw,3rem)',
+              marginBottom: 12,
+            }}
+          >
+            A plataforma orienta, mas não diagnostica.
+          </h2>
+          <p style={{ color: '#d8e4df', maxWidth: 760 }}>
+            O assistente não é psicólogo, psiquiatra ou serviço de emergência.
+            Em situação de risco imediato, procure o SAMU (192), uma emergência
+            local ou o CVV (188).
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}

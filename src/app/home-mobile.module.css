@@ -1,0 +1,16 @@
+.professionalsAction {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .professionalsAction {
+    display: none;
+  }
+
+  .heroGrid {
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,65 @@
+export type UserRole = 'user' | 'professional' | 'admin';
+export type ServiceMode = 'online' | 'in_person' | 'hybrid';
+export type ProfessionalStatus =
+  'draft' | 'pending_review' | 'approved' | 'rejected' | 'suspended';
+export type VerificationDocumentType = 'identity' | 'crp' | 'selfie';
+export type SubscriptionStatus =
+  'inactive' | 'active' | 'past_due' | 'canceled';
+export type SubscriptionActivationSource = 'admin' | 'payment';
+export type Profile = {
+  id: string;
+  full_name: string;
+  role: UserRole;
+  created_at: string;
+  updated_at: string;
+};
+export type Professional = {
+  id: string;
+  profile_id: string;
+  professional_type: string;
+  registration_number: string;
+  registration_region: string;
+  specialty: string | null;
+  bio: string | null;
+  service_mode: ServiceMode;
+  city: string | null;
+  state: string | null;
+  contact_email: string | null;
+  phone_number: string | null;
+  avatar_path: string | null;
+  status: ProfessionalStatus;
+  is_published: boolean;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+export type ProfessionalVerificationDocument = {
+  id: string;
+  professional_id: string;
+  document_type: VerificationDocumentType;
+  storage_path: string;
+  mime_type: string;
+  size_bytes: number;
+  uploaded_by: string;
+  consent_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+export type ProfessionalSubscription = {
+  id: string;
+  professional_id: string;
+  status: SubscriptionStatus;
+  activation_source: SubscriptionActivationSource | null;
+  activated_at: string | null;
+  activated_by_admin: string | null;
+  admin_note: string | null;
+  provider: string | null;
+  provider_customer_id: string | null;
+  provider_subscription_id: string | null;
+  current_period_start: string | null;
+  current_period_end: string | null;
+  cancel_at_period_end: boolean;
+  created_at: string;
+  updated_at: string;
+};
